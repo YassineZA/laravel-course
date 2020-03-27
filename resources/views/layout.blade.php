@@ -8,6 +8,24 @@
 </head>
 <body>
 
+    @if (session()->has('status'))
+        <h3 style="color:green">
+            {{ session()->get('status') }}
+        </h3>
+    @endif
+    
+    <ul>
+        <li>
+            <a href="{{ route('home') }}">Home</a>
+        </li>
+        <li>
+            <a href="{{ route('about') }}">About</a>
+        </li>
+        <li>
+            <a href="{{ route('posts.create') }}">New Post</a>
+        </li>
+    </ul>
+
     @yield('content')
 
 </body>
