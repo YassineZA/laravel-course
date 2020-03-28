@@ -1,27 +1,13 @@
 @extends('layout')
 
 @section('content')    
+    <h1>New post</h1>
     <form method="POST" action="{{ route('posts.store') }}">
         @csrf
-        <div>
-            <label for="title">Your title</label>
-            <input name="title" id="title" type="text">
-        </div>
+        
+        @include('posts.form')
 
-        <div>
-            <label for="content">Your content</label>
-            <input name="content" id="content" type="text">
-        </div>
-
-        @if ($errors->any())
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach                
-            </ul>
-        @endif        
-
-        <button type="submit">Add post</button>
+        <button class="btn btn-block btn-primary" type="submit">Add post</button>
     </form>
 
 @endsection
